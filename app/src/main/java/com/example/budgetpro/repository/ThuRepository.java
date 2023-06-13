@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.budgetpro.dao.AppDatabase;
 import com.example.budgetpro.dao.ThuDao;
+import com.example.budgetpro.entity.ThongKeLoaiThu;
 import com.example.budgetpro.entity.Thu;
 
 import java.util.List;
@@ -25,6 +26,16 @@ public class ThuRepository {
     public LiveData<List<Thu>> getAllThu() {
         return mAllThu;
     }
+
+    public LiveData<Float> sumTongThu() {
+        return mThuDao.sumTongThu();
+    }
+
+    public LiveData<List<ThongKeLoaiThu>> sumByLoaiThu() {
+        return mThuDao.sumByLoaiThu();
+    }
+
+
     public void insert(Thu thu) {
         new InsertAsyncTask(mThuDao).execute(thu);
     }
