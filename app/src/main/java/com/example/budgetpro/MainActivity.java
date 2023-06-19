@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.budgetpro.dialog.LoaiChiDialog;
 import com.example.budgetpro.dialog.LoaiThuDialog;
 import com.example.budgetpro.dialog.ThuDialog;
 import com.example.budgetpro.entity.LoaiThu;
+import com.example.budgetpro.ui.chi.KhoanChiFragment;
+import com.example.budgetpro.ui.chi.LoaiChiFragment;
 import com.example.budgetpro.ui.thu.KhoanThuFragment;
 import com.example.budgetpro.ui.thu.LoaiThuFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -46,9 +49,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 List<Fragment> fragments = getSupportFragmentManager().getFragments();
                 Fragment fragment = fragments.get(fragments.size()-1);
+
                 if ( fragment instanceof LoaiThuFragment){
                     LoaiThuDialog dialog = new LoaiThuDialog(currentContext,(LoaiThuFragment) fragment);
                     dialog.show();
+
                 } else if (fragment instanceof KhoanThuFragment){
                     ThuDialog dialog = new ThuDialog(currentContext, (KhoanThuFragment) fragment);
                     dialog.show();

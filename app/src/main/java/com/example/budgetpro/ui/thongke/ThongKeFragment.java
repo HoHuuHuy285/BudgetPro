@@ -14,24 +14,28 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.example.budgetpro.R;
+import com.example.budgetpro.adapter.ThongKeLoaiChiRecyclerViewAdapter;
 import com.example.budgetpro.adapter.ThongKeLoaiThuRecyclerViewAdapter;
+import com.example.budgetpro.entity.ThongKeLoaiChi;
 import com.example.budgetpro.entity.ThongKeLoaiThu;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ThongKeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ThongKeFragment extends Fragment {
 
     private ThongKeViewModel mThongKeViewModel;
     private EditText mEtTongThu;
 
+    private EditText mEtTongChi;
+
     private RecyclerView rvThongKeLoaiThu;
 
+    private RecyclerView rvThongKeLoaiChi;
+
     private ThongKeLoaiThuRecyclerViewAdapter mThongKeLoaiThuAdapter;
+
+    private ThongKeLoaiChiRecyclerViewAdapter mThongKeLoaiChiAdapter;
 
 
 
@@ -60,12 +64,19 @@ public class ThongKeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_thong_ke, container, false);
         mEtTongThu = view.findViewById(R.id.etTongThu);
+        mEtTongChi = view.findViewById(R.id.etTongChi);
         rvThongKeLoaiThu = view.findViewById(R.id.rvThongkeloaithu);
+        rvThongKeLoaiChi = view.findViewById(R.id.rvThongKeTongChi);
+
 
         mThongKeViewModel = new ViewModelProvider(this).get(ThongKeViewModel.class);
         mThongKeLoaiThuAdapter = new ThongKeLoaiThuRecyclerViewAdapter(getActivity());
+        mThongKeLoaiChiAdapter = new ThongKeLoaiChiRecyclerViewAdapter(getActivity());
         rvThongKeLoaiThu.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvThongKeLoaiChi.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvThongKeLoaiThu.setAdapter(mThongKeLoaiThuAdapter);
+        rvThongKeLoaiChi.setAdapter(mThongKeLoaiChiAdapter);
+
 
         mThongKeViewModel.getTongThu().observe(getActivity(), new Observer<Float>() {
             @Override
@@ -80,5 +91,22 @@ public class ThongKeFragment extends Fragment {
             }
         });
         return view;
+
+
+        mThongKeViewModel.getTongChi().observe(getActivity(), new Observer<Float>() {
+            @Override
+            public void onChanged(Float tong) {
+                mEtTongChi.setText("" + tong);
+            }
+        });
+        mThongKeViewModel.getThongKeLoaiChis().observe(getActivity(), new Observer<List<ThongKeLoaiChi>>() {
+            @Override
+            public void onChanged(List<ThongKeLoaiChi> thongKeLoaiChis) {
+                mThongKeLoaiChiAdapter.setList(thongKeLoaiChis);
+            }
+        });
+        return view;
+
+
     }
 }

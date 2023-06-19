@@ -52,7 +52,7 @@ public class ThongKeLoaiThuRecyclerViewAdapter
         return mList.size();
     }
 
-    public void setList(List <ThongKeLoaiThu> list){
+    public void setList(List<ThongKeLoaiThu> list){
         this.mList = list;
         notifyDataSetChanged();
     }
