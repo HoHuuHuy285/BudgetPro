@@ -65,11 +65,25 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             String[] loaithus = new String[]{"Luong", "Thuong", "Co Phieu"};
+            String[] loaichis = new String[]{"Du lich", "Mua sam"};
             for (String it: loaithus) {
                 LoaiThu lt = new LoaiThu();
                 lt.ten = it;
                 loaiThuDao.insert(lt);
             }
+            for (String it: loaichis) {
+                LoaiChi lc = new LoaiChi();
+                lc.ten = it;
+                loaiChiDao.insert(lc);
+            }
+            Chi chi = new Chi();
+            chi.ten = "Sapa";
+            chi.sotien =5000;
+            chi.lcid = 2;
+            chi.ghichu = "";
+            chiDao.insert(chi);
+            Log.d("BudgetPro: ", "insert data");
+
             Thu thu = new Thu();
             thu.ten = " Lương tháng 1 ";
             thu.sotien = 3000;
@@ -78,9 +92,14 @@ public abstract class AppDatabase extends RoomDatabase {
             thuDao.insert(thu);
             Log.d("BudgetPro: ", "insert data");
             return null;
+
+
+            }
         }
+
+
 
 
     }
 
-}
+

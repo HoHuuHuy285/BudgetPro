@@ -21,7 +21,7 @@ public interface ChiDao {
     LiveData<List<Chi>> findAll();
 
     @Query("SELECT sum(sotien) FROM chi")
-    LiveData<Float> sumTongThu();
+    LiveData<Float> sumTongChi();
 
     @Query("SELECT b.lcid, b.ten,  sum(a.sotien) as tong FROM thu a INNER JOIN loaichi b on a.ltid = b.lcid " + "GROUP BY b.lcid, b.ten")
     LiveData<List<ThongKeLoaiChi>> sumByLoaiChi();

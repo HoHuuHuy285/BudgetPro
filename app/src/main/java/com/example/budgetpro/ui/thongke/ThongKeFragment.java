@@ -84,19 +84,17 @@ public class ThongKeFragment extends Fragment {
                 mEtTongThu.setText("" + tong);
             }
         });
-        mThongKeViewModel.getThongKeLoaiThus().observe(getActivity(), new Observer<List<ThongKeLoaiThu>>() {
-            @Override
-            public void onChanged(List<ThongKeLoaiThu> thongKeLoaiThus) {
-                mThongKeLoaiThuAdapter.setList(thongKeLoaiThus);
-            }
-        });
-        return view;
-
 
         mThongKeViewModel.getTongChi().observe(getActivity(), new Observer<Float>() {
             @Override
             public void onChanged(Float tong) {
                 mEtTongChi.setText("" + tong);
+            }
+        });
+        mThongKeViewModel.getThongKeLoaiThus().observe(getActivity(), new Observer<List<ThongKeLoaiThu>>() {
+            @Override
+            public void onChanged(List<ThongKeLoaiThu> thongKeLoaiThus) {
+                mThongKeLoaiThuAdapter.setList(thongKeLoaiThus);
             }
         });
         mThongKeViewModel.getThongKeLoaiChis().observe(getActivity(), new Observer<List<ThongKeLoaiChi>>() {
@@ -108,5 +106,10 @@ public class ThongKeFragment extends Fragment {
         return view;
 
 
+
+
+
+
     }
+
 }

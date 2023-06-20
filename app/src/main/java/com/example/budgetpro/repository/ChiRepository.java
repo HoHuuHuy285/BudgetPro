@@ -8,6 +8,8 @@ import androidx.lifecycle.LiveData;
 import com.example.budgetpro.dao.AppDatabase;
 import com.example.budgetpro.dao.ChiDao;
 import com.example.budgetpro.entity.Chi;
+import com.example.budgetpro.entity.ThongKeLoaiChi;
+import com.example.budgetpro.entity.ThongKeLoaiThu;
 
 import java.util.List;
 
@@ -25,6 +27,16 @@ public class ChiRepository {
     public LiveData<List<Chi>> getAllChi() {
         return mAllChi;
     }
+
+    public LiveData<Float> sumTongChi() {
+        return mChiDao.sumTongChi();
+    }
+
+    public LiveData<List<ThongKeLoaiChi>> sumByLoaiChi() {
+        return mChiDao.sumByLoaiChi();
+    }
+
+
     public void insert(Chi Chi) {
         new InsertAsyncTask(mChiDao).execute(Chi);
     }
