@@ -33,7 +33,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_menu_gallery" />
+            app:srcCompat="@drawable/baseline_mode_edit_outline_24" />
 
         <ImageView
             android:id="@+id/ivView"
@@ -43,7 +43,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/ivEdit"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_menu_camera" />
+            app:srcCompat="@drawable/baseline_info_24" />
 
         <TextView
             android:id="@+id/tvAmount"
