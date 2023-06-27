@@ -30,7 +30,7 @@ public class LoaiChiDialog {
         etId = view.findViewById(R.id.etidChi);
         etName = view.findViewById(R.id.etNameChi);
         if ( loaiChi != null && loaiChi.length > 0  ){
-            etId.setText(""+loaiChi[0].lcid);
+            etId.setText(""+loaiChi[0].llid);
             etName.setText(loaiChi[0].ten);
             mEditMode1 = true;
         } else {
@@ -50,7 +50,7 @@ public class LoaiChiDialog {
                         LoaiChi lc = new LoaiChi();
                         lc.ten = etName.getText().toString();
                         if ( mEditMode1) {
-                            lc.lcid = Integer.parseInt(etId.getText().toString());
+                            lc.llid = Integer.parseInt(etId.getText().toString());
                             mViewModel.update(lc);
                         } else {
                             mViewModel.insert(lc);

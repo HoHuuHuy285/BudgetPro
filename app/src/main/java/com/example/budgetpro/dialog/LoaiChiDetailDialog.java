@@ -25,7 +25,7 @@ public class LoaiChiDetailDialog {
         View view = mLayoutInflater.inflate(R.layout.dialog_detail_loai_chi, null);
         tvId = view.findViewById(R.id.tvIdChi);
         tvName = view.findViewById(R.id.tvnameChi);
-        tvId.setText(""+loaiChi.lcid);
+        tvId.setText(""+loaiChi.llid);
         tvName.setText(loaiChi.ten);
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(view)

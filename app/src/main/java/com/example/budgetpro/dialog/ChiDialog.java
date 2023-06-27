@@ -71,7 +71,7 @@ public class ChiDialog {
                         lc.ten = etName.getText().toString();
                         lc.sotien = Float.parseFloat(etAmount.getText().toString());
                         lc.ghichu = etNote.getText().toString();
-                        lc.lcid = ((LoaiChi) mAdapter.getItem(spType.getSelectedItemPosition())).lcid;
+                        lc.lcid = ((LoaiChi) mAdapter.getItem(spType.getSelectedItemPosition())).llid;
                         if ( mEditMode) {
                             lc.lcid = Integer.parseInt(etId.getText().toString());
                             mViewModel.update(lc);
