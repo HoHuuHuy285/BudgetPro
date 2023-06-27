@@ -21,20 +21,20 @@ public class LoaiChiDialog {
     private AlertDialog mDialog;
 
     private TextInputEditText etId, etName;
-    private boolean mEditMode;
+    private boolean mEditMode1;
 
-    public LoaiChiDialog(final Context context, LoaiChiFragment fragment, LoaiChi ... loaiChis) {
+    public LoaiChiDialog(final Context context, LoaiChiFragment fragment, LoaiChi ... loaiChi) {
         mViewModel = fragment.getViewModel();
         mLayoutInflater = LayoutInflater.from(context);
         View view = mLayoutInflater.inflate(R.layout.dialog_loai_chi, null);
         etId = view.findViewById(R.id.etidChi);
         etName = view.findViewById(R.id.etNameChi);
-        if ( loaiChis != null && loaiChis.length > 0  ){
-            etId.setText(""+loaiChis[0].lcid);
-            etName.setText(loaiChis[0].ten);
-            mEditMode = true;
+        if ( loaiChi != null && loaiChi.length > 0  ){
+            etId.setText(""+loaiChi[0].lcid);
+            etName.setText(loaiChi[0].ten);
+            mEditMode1 = true;
         } else {
-            mEditMode = false;
+            mEditMode1 = false;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(view)
@@ -49,12 +49,12 @@ public class LoaiChiDialog {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         LoaiChi lc = new LoaiChi();
                         lc.ten = etName.getText().toString();
-                        if ( mEditMode) {
+                        if ( mEditMode1) {
                             lc.lcid = Integer.parseInt(etId.getText().toString());
                             mViewModel.update(lc);
                         } else {
                             mViewModel.insert(lc);
-                            Toast.makeText(context, "Loại cHI Được Lưu", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Loại Chi Được Lưu", Toast.LENGTH_SHORT).show();
                         }
 
                     }

@@ -64,7 +64,7 @@ public class LoaiChiRecyclerViewAdapter extends RecyclerView.Adapter<LoaiChiRecy
         }
         return mListChi.get(position);
     }
-    public void setList(List<LoaiChi> mList) {
+    public void setList(List<LoaiChi> mListChi) {
 
         this.mListChi = mListChi;
         notifyDataSetChanged();

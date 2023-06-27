@@ -13,7 +13,7 @@ import com.example.budgetpro.entity.LoaiChi;
 import java.util.List;
 
 public class LoaiChiSpinnerAdapter extends BaseAdapter {
-    private List<LoaiChi> mList;
+    private List<LoaiChi> mList1;
     private LayoutInflater mLayoutInflater;
 
     public LoaiChiSpinnerAdapter(Context context) {
@@ -21,22 +21,22 @@ public class LoaiChiSpinnerAdapter extends BaseAdapter {
     }
 
     public void setList(List<LoaiChi> mList) {
-        this.mList = mList;
+        this.mList1 = mList;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        if ( mList == null)
+        if ( mList1 == null)
             return 0;
-        return mList.size();
+        return mList1.size();
     }
 
     @Override
     public Object getItem(int i) {
-        if( mList == null)
+        if( mList1 == null)
             return null;
-        return mList.get(i);
+        return mList1.get(i);
     }
 
     @Override
@@ -54,15 +54,14 @@ public class LoaiChiSpinnerAdapter extends BaseAdapter {
         } else {
             holder = (KhoanChiViewHolder) view.getTag();
         }
-        holder.tvName.setText(mList.get(i).ten);
+        holder.tvNameChi.setText(mList1.get(i).ten);
         return view;
     }
 
     public static class KhoanChiViewHolder {
-        public TextView tvName;
+        public TextView tvNameChi;
 
-        public KhoanChiViewHolder(View view) {
-            tvName = view.findViewById(R.id.tvName);
+        public KhoanChiViewHolder(View view) {tvNameChi = view.findViewById(R.id.tvnameChi);
         }
     }
 }

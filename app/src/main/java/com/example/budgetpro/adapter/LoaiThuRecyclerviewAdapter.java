@@ -77,7 +77,7 @@ public class LoaiThuRecyclerviewAdapter extends RecyclerView.Adapter<LoaiThuRecy
         public int position;
         public LoaiThuViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvName);
+            tvName = itemView.findViewById(R.id.tvNameChi);
             ivView = itemView.findViewById(R.id.ivView);
             ivEdit = itemView.findViewById(R.id.ivEdit);
             cv = (CardView) itemView;

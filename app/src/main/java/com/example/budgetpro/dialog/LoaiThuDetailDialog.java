@@ -6,13 +6,11 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.budgetpro.R;
 import com.example.budgetpro.entity.LoaiThu;
 import com.example.budgetpro.ui.thu.LoaiThuFragment;
 import com.example.budgetpro.ui.thu.LoaiThuViewModel;
-import com.google.android.material.textfield.TextInputEditText;
 
 public class LoaiThuDetailDialog {
     private LoaiThuViewModel mViewModel;
@@ -26,7 +24,7 @@ public class LoaiThuDetailDialog {
         mLayoutInflater = LayoutInflater.from(context);
         View view = mLayoutInflater.inflate(R.layout.dialog_detail_loai_thu, null);
         tvId = view.findViewById(R.id.tvId);
-        tvName = view.findViewById(R.id.tvName);
+        tvName = view.findViewById(R.id.tvNameChi);
         tvId.setText(""+loaiThu.lid);
         tvName.setText(loaiThu.ten);
         AlertDialog.Builder builder = new AlertDialog.Builder(context)

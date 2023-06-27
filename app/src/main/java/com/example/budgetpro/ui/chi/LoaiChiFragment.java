@@ -20,8 +20,6 @@ import android.widget.Toast;
 import com.example.budgetpro.R;
 import com.example.budgetpro.adapter.ItemClickListener;
 import com.example.budgetpro.adapter.LoaiChiRecyclerViewAdapter;
-import com.example.budgetpro.adapter.LoaiChiRecyclerViewAdapter;
-import com.example.budgetpro.dao.LoaiChiDao;
 import com.example.budgetpro.dialog.LoaiChiDetailDialog;
 import com.example.budgetpro.dialog.LoaiChiDialog;
 import com.example.budgetpro.entity.LoaiChi;
@@ -44,13 +42,13 @@ public class LoaiChiFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_loai_thu, container, false);
+        return inflater.inflate(R.layout.fragment_loai_chi, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRv = view.findViewById(R.id.recyclerView);
+        mRv = view.findViewById(R.id.rV2);
         mAdapter = new LoaiChiRecyclerViewAdapter(getActivity());
         mRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRv.setAdapter(mAdapter);
@@ -102,8 +100,8 @@ public class LoaiChiFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(LoaiChiViewModel.class);
         mViewModel.getAllLoaiChi().observe(getActivity(), new Observer<List<LoaiChi>>() {
             @Override
-            public void onChanged(List<LoaiChi> loaiThus) {
-                mAdapter.setList(loaiThus);
+            public void onChanged(List<LoaiChi> loaiChis) {
+                mAdapter.setList(loaiChis);
             }
         });
     }

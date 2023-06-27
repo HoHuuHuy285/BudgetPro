@@ -30,7 +30,7 @@ public class ChiDialog {
     private Spinner spType;
     private boolean mEditMode;
     private LoaiChiSpinnerAdapter mAdapter;
-    public ChiDialog(final Context context, KhoanChiFragment fragment, Thu ... chi) {
+    public ChiDialog(final Context context, KhoanChiFragment fragment, Chi ... chi) {
         mViewModel = fragment.getViewModel();
         mLayoutInflater = LayoutInflater.from(context);
         View view = mLayoutInflater.inflate(R.layout.dialog_chi, null);
@@ -48,7 +48,7 @@ public class ChiDialog {
         });
         spType.setAdapter(mAdapter);
         if ( chi != null && chi.length > 0  ){
-            etId.setText(""+chi[0].tid);
+            etId.setText(""+chi[0].cid);
             etName.setText(chi[0].ten);
             etAmount.setText(""+chi[0].sotien);
             etNote.setText(chi[0].ghichu);
