@@ -52,10 +52,10 @@ public class ThuFragment extends Fragment {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 if (position == 0 ) {
                     tab.setText("Khoản Thu");
-                    tab.setIcon(R.drawable.ic_menu_camera);
+                    tab.setIcon(R.drawable.baseline_monetization_on_24);
                 } else {
                     tab.setText("Loại Khoản Thu");
-                    tab.setIcon(R.drawable.ic_menu_camera);
+                    tab.setIcon(R.drawable.baseline_monetization_on_24);
                 }
             }
         }).attach();
