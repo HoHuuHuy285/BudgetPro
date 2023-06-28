@@ -26,6 +26,7 @@ public class ThongKeFragment extends Fragment {
 
     private ThongKeViewModel mThongKeViewModel;
 
+
     private EditText mEtTongThu;
 
     private EditText mEtTongChi;
@@ -96,6 +97,7 @@ public class ThongKeFragment extends Fragment {
 
 
         mThongKeViewModel = new ViewModelProvider(this).get(ThongKeViewModel.class);
+
 
         mThongKeLoaiThuAdapter = new ThongKeLoaiThuRecyclerViewAdapter(getActivity());
         mThongKeLoaiChiAdapter = new ThongKeLoaiChiRecyclerViewAdapter(getActivity());
