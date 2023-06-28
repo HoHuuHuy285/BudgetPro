@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.budgetpro.R;
 import com.example.budgetpro.entity.LoaiThu;
-import com.example.budgetpro.entity.Thu;
 
 import java.util.List;
 
@@ -63,7 +62,7 @@ public class LoaiThuSpinnerAdapter extends BaseAdapter {
         public TextView tvName;
 
         public KhoanThuViewHolder(View view) {
-            tvName = view.findViewById(R.id.tvName);
+            tvName = view.findViewById(R.id.tvNameChi);
         }
     }
 }

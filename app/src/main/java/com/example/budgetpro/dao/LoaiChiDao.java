@@ -8,7 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.budgetpro.entity.LoaiChi;
-import com.example.budgetpro.entity.LoaiThu;
+
 
 import java.util.List;
 

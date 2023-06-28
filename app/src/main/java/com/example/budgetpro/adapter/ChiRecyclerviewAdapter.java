@@ -78,7 +78,7 @@ public class ChiRecyclerviewAdapter extends RecyclerView.Adapter<ChiRecyclerview
         public int position;
         public ChiViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvName);
+            tvName = itemView.findViewById(R.id.tvNameChi);
             tvAmount = itemView.findViewById(R.id.tvAmount);
             ivView = itemView.findViewById(R.id.ivView);
             ivEdit = itemView.findViewById(R.id.ivEdit);

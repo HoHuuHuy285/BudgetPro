@@ -25,6 +25,8 @@ import java.util.List;
 public class ThongKeFragment extends Fragment {
 
     private ThongKeViewModel mThongKeViewModel;
+
+
     private EditText mEtTongThu;
 
     private EditText mEtTongChi;
@@ -55,7 +57,32 @@ public class ThongKeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mThongKeViewModel = new ViewModelProvider(this).get(ThongKeViewModel.class);
 
+        mThongKeViewModel.getTongThu().observe(getActivity(), new Observer<Float>() {
+            @Override
+            public void onChanged(Float tong) {
+                mEtTongThu.setText("" + tong);
+            }
+        });
+        mThongKeViewModel.getThongKeLoaiThus().observe(getActivity(), new Observer<List<ThongKeLoaiThu>>() {
+            @Override
+            public void onChanged(List<ThongKeLoaiThu> thongKeLoaiThus) {
+                mThongKeLoaiThuAdapter.setList(thongKeLoaiThus);
+            }
+        });
+        mThongKeViewModel.getTongChi().observe(getActivity(), new Observer<Float>() {
+            @Override
+            public void onChanged(Float tong) {
+                mEtTongChi.setText(""+tong);
+            }
+        });
+        mThongKeViewModel.getThongKeLoaiChis().observe(getActivity(), new Observer<List<ThongKeLoaiChi>>() {
+            @Override
+            public void onChanged(List<ThongKeLoaiChi> thongKeLoaiChis) {
+                mThongKeLoaiChiAdapter.setList(thongKeLoaiChis);
+            }
+        });
         }
 
 
@@ -70,6 +97,8 @@ public class ThongKeFragment extends Fragment {
 
 
         mThongKeViewModel = new ViewModelProvider(this).get(ThongKeViewModel.class);
+
+
         mThongKeLoaiThuAdapter = new ThongKeLoaiThuRecyclerViewAdapter(getActivity());
         mThongKeLoaiChiAdapter = new ThongKeLoaiChiRecyclerViewAdapter(getActivity());
         rvThongKeLoaiThu.setLayoutManager(new LinearLayoutManager(getActivity()));

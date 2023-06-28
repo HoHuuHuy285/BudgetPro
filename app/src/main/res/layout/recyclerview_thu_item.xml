@@ -13,7 +13,7 @@
         android:paddingBottom="5dp">
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvNameChi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -56,8 +56,8 @@
             android:textSize="10sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/ivView"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
-            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+            app:layout_constraintStart_toStartOf="@+id/tvNameChi"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameChi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

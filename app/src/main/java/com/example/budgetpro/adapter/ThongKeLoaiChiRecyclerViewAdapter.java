@@ -19,7 +19,7 @@ public class ThongKeLoaiChiRecyclerViewAdapter
         extends RecyclerView.Adapter<ThongKeLoaiChiRecyclerViewAdapter.ThongKeLoaiChiViewHolder> {
 
     private LayoutInflater mLayoutInflater;
-    private List <ThongKeLoaiChi> mList;
+    private List <ThongKeLoaiChi> mListChi;
 
 
     public ThongKeLoaiChiRecyclerViewAdapter(Context context){
@@ -29,7 +29,7 @@ public class ThongKeLoaiChiRecyclerViewAdapter
     @NonNull
     @Override
     public ThongKeLoaiChiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mLayoutInflater.inflate(R.layout.recyclerviewthongkeloaithu, parent, false);
+        View view = mLayoutInflater.inflate(R.layout.recyclerview_thongke_loaichi, parent, false);
 
 
         return new ThongKeLoaiChiViewHolder(view);
@@ -38,22 +38,22 @@ public class ThongKeLoaiChiRecyclerViewAdapter
     @Override
     public void onBindViewHolder(@NonNull ThongKeLoaiChiViewHolder holder, int position) {
 
-        if(mList != null){
-            holder.tvTenLoaiChi.setText(mList.get(position).ten);
-            holder.etTongLoaiChi.setText("" + mList.get(position).tong);
+        if(mListChi != null){
+            holder.tvTenLoaiChi.setText(mListChi.get(position).ten);
+            holder.etTongLoaiChi.setText("" + mListChi.get(position).tong);
         }
 
     }
 
     @Override
     public int getItemCount() {
-        if(mList == null)
+        if(mListChi == null)
             return 0;
-        return mList.size();
+        return mListChi.size();
     }
 
     public void setList(List <ThongKeLoaiChi> list){
-        this.mList = list;
+        this.mListChi = list;
         notifyDataSetChanged();
     }
 
@@ -63,8 +63,8 @@ public class ThongKeLoaiChiRecyclerViewAdapter
 
         public ThongKeLoaiChiViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTenLoaiChi = itemView.findViewById(R.id.tvnameChi);
-            etTongLoaiChi = itemView.findViewById(R.id.etTongChi);
+            tvTenLoaiChi = itemView.findViewById(R.id.tvTenLoaiChi);
+            etTongLoaiChi = itemView.findViewById(R.id.etTongLoaiChi);
         }
     }
 }

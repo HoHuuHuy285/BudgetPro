@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class LoaiChi {
     @PrimaryKey(autoGenerate = true)
-    public int lcid;
+    public int llid;
     @ColumnInfo(name = "ten")
     public String ten;
 }

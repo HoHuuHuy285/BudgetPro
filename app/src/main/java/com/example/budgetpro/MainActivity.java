@@ -1,9 +1,11 @@
 package com.example.budgetpro;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.budgetpro.dialog.ChiDialog;
 import com.example.budgetpro.dialog.LoaiChiDialog;
 import com.example.budgetpro.dialog.LoaiThuDialog;
 import com.example.budgetpro.dialog.ThuDialog;
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder(StrictMode.getVmPolicy())
+                .detectLeakedClosableObjects()
+                .build());
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -50,13 +56,25 @@ public class MainActivity extends AppCompatActivity {
                 List<Fragment> fragments = getSupportFragmentManager().getFragments();
                 Fragment fragment = fragments.get(fragments.size()-1);
 
+
                 if ( fragment instanceof LoaiThuFragment){
                     LoaiThuDialog dialog = new LoaiThuDialog(currentContext,(LoaiThuFragment) fragment);
                     dialog.show();
 
+
                 } else if (fragment instanceof KhoanThuFragment){
                     ThuDialog dialog = new ThuDialog(currentContext, (KhoanThuFragment) fragment);
                     dialog.show();
+                }
+
+                if ( fragment instanceof LoaiChiFragment){
+                    LoaiChiDialog dialog1 = new LoaiChiDialog(currentContext,(LoaiChiFragment) fragment);
+                    dialog1.show();
+
+
+                } else if (fragment instanceof KhoanChiFragment){
+                    ChiDialog dialog1 = new ChiDialog(currentContext, (KhoanChiFragment) fragment);
+                    dialog1.show();
                 }
             }
         });

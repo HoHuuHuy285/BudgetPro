@@ -78,7 +78,7 @@ public abstract class AppDatabase extends RoomDatabase {
             }
             Chi chi = new Chi();
             chi.ten = "Sapa";
-            chi.sotien =5000;
+            chi.sotien = 5000;
             chi.lcid = 2;
             chi.ghichu = "";
             chiDao.insert(chi);
@@ -92,6 +92,7 @@ public abstract class AppDatabase extends RoomDatabase {
             thuDao.insert(thu);
             Log.d("BudgetPro: ", "insert data");
             return null;
+
 
 
             }

@@ -37,49 +37,49 @@ public class ChiRepository {
     }
 
 
-    public void insert(Chi Chi) {
-        new InsertAsyncTask(mChiDao).execute(Chi);
+    public void insert(Chi chi) {
+        new InsertAsyncTask(mChiDao).execute(chi);
     }
-    public void delete(Chi Chi) {
-        new DeleteAsyncTask(mChiDao).execute(Chi);
+    public void delete(Chi chi) {
+        new DeleteAsyncTask(mChiDao).execute(chi);
     }
 
-    public void update(Chi Chi){
-        new UpdateAsyncTask(mChiDao).execute(Chi);
+    public void update(Chi chi){
+        new UpdateAsyncTask(mChiDao).execute(chi);
     }
     class UpdateAsyncTask extends AsyncTask<Chi, Void, Void> {
         private ChiDao mChiDao;
-        public UpdateAsyncTask(ChiDao ChiDao) {
-            this.mChiDao = ChiDao;
+        public UpdateAsyncTask(ChiDao chiDao) {
+            this.mChiDao = chiDao;
         }
 
         @Override
-        protected Void doInBackground(Chi... Chis) {
-            mChiDao.update(Chis[0]);
+        protected Void doInBackground(Chi... chis) {
+            mChiDao.update(chis[0]);
             return null;
         }
     }
     class InsertAsyncTask extends AsyncTask<Chi, Void, Void> {
         private ChiDao mChiDao;
-        public InsertAsyncTask(ChiDao ChiDao) {
-            this.mChiDao = ChiDao;
+        public InsertAsyncTask(ChiDao chiDao) {
+            this.mChiDao = chiDao;
         }
 
         @Override
-        protected Void doInBackground(Chi... Chis) {
-            mChiDao.insert(Chis[0]);
+        protected Void doInBackground(Chi... chis) {
+            mChiDao.insert(chis[0]);
             return null;
         }
     }
     class DeleteAsyncTask extends AsyncTask<Chi, Void, Void> {
         private ChiDao mChiDao;
-        public DeleteAsyncTask(ChiDao ChiDao) {
-            this.mChiDao = ChiDao;
+        public DeleteAsyncTask(ChiDao chiDao) {
+            this.mChiDao = chiDao;
         }
 
         @Override
-        protected Void doInBackground(Chi... Chis) {
-            mChiDao.delete(Chis[0]);
+        protected Void doInBackground(Chi... chis) {
+            mChiDao.delete(chis[0]);
             return null;
         }
     }
